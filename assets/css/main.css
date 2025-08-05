@@ -1,0 +1,9 @@
+@import "tailwindcss";
+@import "@nuxt/ui";
+
+@plugin 'tailwind-scrollbar';
+
+@theme static { 
+  --color-pool-50: #F8C031; 
+  --ui-header-height : 80px;
+}
