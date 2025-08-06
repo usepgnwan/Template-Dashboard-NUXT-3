@@ -80,7 +80,7 @@ function show(){
                         label="Password"
                         /> 
 
-                        <UIcon :name="iconPassword" class="absolute right-0 top-1/2 -translate-1/2" v-on:click="show"></UIcon>
+                        <UIcon :name="iconPassword" class="absolute right-0 top-1/2 -translate-1/2 cursor-po" v-on:click="show"></UIcon>
                        </div>
                         <div class="flex justify-between">
                             <UCheckbox label="Remember me" />

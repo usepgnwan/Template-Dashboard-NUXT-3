@@ -45,9 +45,9 @@ const onInput = (event: Event) => {
       :required="props.required"
       :value="props.value"
       @input="onInput"
-      class="block px-2.5 pb-2.5"
+      class="block px-2.5 "
       :class="[
-        props.statFloat ? 'p-4' : '',
+        props.statFloat ? 'pb-2.5' : 'p-2',
         'w-full text-sm bg-transparent rounded-lg border border-gray-300 appearance-none',
         'dark:text-white dark:border-gray-600 dark:focus:border-pool-50',
         'focus:outline-none focus:border-pool-100 peer focus:ring focus:ring-pool-100/25 focus:ring-offset-0',
