@@ -5,7 +5,6 @@ import { useWindowSize } from '@vueuse/core';
 import cloneDeep from 'lodash.clonedeep';
  
 let {hbar, wbar} = useSideBarData()
-let { data_menu } = useMenuData();
  
 const { width } = useWindowSize()
 
@@ -26,14 +25,32 @@ onMounted(()=>{
 
 
 const getValue = debounceValue((val: string, newdata: any, callback: (result: any) => void) => {
-  let data = cloned;
-
+  let data = cloneDeep(rawData);
+ 
   if (val !== '' && val !== null) {
-    data = newdata
-      .map((v: any) => {
-        const filteredChildren = v.data?.filter((child: any) =>
-          child.label.toLowerCase().includes(val.toLowerCase())
-        ) || [];
+    data = newdata.map((v: any) => {  
+        let filteredChildren =  v.data?.filter((child: any) => {
+                // Pastikan child bukan null/undefined dan punya label
+                if (!child || typeof child.label !== 'string') return false;
+              
+                const isLabelMatch = child.label.toLowerCase().includes(val.toLowerCase());
+                if(isLabelMatch){ 
+                  return isLabelMatch;
+                }
+
+
+                // Jika ada children, filter juga children-nya
+                if (!isLabelMatch && Array.isArray(child.children)) {
+                    child.children = child.children.filter((sub: any) =>
+                      sub?.label &&
+                      typeof sub.label === 'string' &&
+                      sub.label.toLowerCase().includes(val.toLowerCase())
+                    ); 
+                    child.defaultOpen = true;
+                }
+
+              return  child.children && child.children.length > 0;
+        }) || [] ;
 
         const isParentMatch = v.label.toLowerCase().includes(val.toLowerCase());
 
@@ -45,9 +62,8 @@ const getValue = debounceValue((val: string, newdata: any, callback: (result: an
         }
 
         return null;
-      })
-      .filter(Boolean); // buang null
-  }
+      }).filter(Boolean); // buang null
+  } 
 
   callback(data); // kirim hasil ke luar
 }, 300);
@@ -58,7 +74,7 @@ watch(search, (val)=>{
       menus.splice(0, menus.length, ...filteredData)
   }
 
-  getValue(val, cloned, getNewval);
+  getValue(val, cloneDeep(rawData), getNewval);
 
 })
 </script>
@@ -112,7 +128,7 @@ watch(search, (val)=>{
       
 
       <!-- INI UNTUK VERSI WEB -->
-      <div class="flex flex-col gap-1 flex-1 overflow-y-auto px-4 overflow-x-hidden scrollbar-none   hover:scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-100   py-2"> 
+      <div class="flex flex-col gap-1 flex-1 overflow-y-auto px-4 overflow-x-hidden scrollbar-none    scrollbar-thumb-gray-400 scrollbar-track-gray-100   py-2" :class="!hbar ? 'hover:scrollbar-thin':''"> 
         <div v-for="(item, index) in menus":key="index">
           <h4 class="font-semibold text-white mb-3" :class="hbar ? 'text-xs text-wrap text-center':'text-lg '" >{{ item.label }}</h4> 
          
@@ -121,7 +137,7 @@ watch(search, (val)=>{
                                 v-for="(data, i) in item.data"
                                 :key="i"
                                 :item="data" 
-                                :ismobile="false"
+                                :ismobile="hbar"
                               />
            
         </div>

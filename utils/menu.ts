@@ -2,7 +2,7 @@ export let menu = [
     {
         label : "Dashboard",
         data : [
-                { 
+                {  
                     label: 'Dashboard',
                     icon: 'i-heroicons-presentation-chart-bar',
                     class:' text-white hover:text-primary hover:bg-elevated rounded-md cursor-pointer', 
@@ -41,19 +41,38 @@ export let menu = [
         data : [
                 { 
                         label: 'Wilayah Administrasi',
-                        icon: 'i-heroicons-presentation-chart-bar',
+                        icon: 'i-gridicons-globe',
                         class:' text-white hover:text-primary hover:bg-elevated rounded-md cursor-pointer', 
                         parent_to: '/xx', 
                         active: false,
+                        defaultOpen: false,
                         children: [
                             {
-                                label: 'Introduction', 
+                                label: 'Negara', 
                                 class:'',
                                 to: '/xx',
                                 active: false,
                             },
                             {
-                                label: 'Installation', 
+                                label: 'Provinsi', 
+                                class:'',
+                                to: '/xx/detail',
+                                active: false,
+                            }, 
+                            {
+                                label: 'Kabupaten Kota', 
+                                class:'',
+                                to: '/xx/detail',
+                                active: false,
+                            }, 
+                            {
+                                label: 'Kecamatan', 
+                                class:'',
+                                to: '/xx/detail',
+                                active: false,
+                            }, 
+                            {
+                                label: 'Kelurahan Desa', 
                                 class:'',
                                 to: '/xx/detail',
                                 active: false,
@@ -62,19 +81,20 @@ export let menu = [
                 }, 
                 { 
                         label: 'Bussiness',
-                        icon: 'i-heroicons-presentation-chart-bar',
+                        icon: 'i-basil-bag-outline',
                         class:' text-white hover:text-primary hover:bg-elevated rounded-md cursor-pointer', 
                         parent_to: '/xx', 
                         active: false,
+                        defaultOpen: false,
                         children: [
                             {
-                                label: 'Introduction', 
+                                label: 'Bussiness Category', 
                                 class:'',
                                 to: '/xx',
                                 active: false,
                             },
                             {
-                                label: 'Installation', 
+                                label: 'Sub Bussiness Category', 
                                 class:'',
                                 to: '/xx/detail',
                                 active: false,
@@ -87,15 +107,16 @@ export let menu = [
                         class:' text-white hover:text-primary hover:bg-elevated rounded-md cursor-pointer', 
                         parent_to: '/xx', 
                         active: false,
+                        defaultOpen: false,
                         children: [
                             {
-                                label: 'Introduction', 
+                                label: 'Variant Parameter', 
                                 class:'',
                                 to: '/xx',
                                 active: false,
                             },
                             {
-                                label: 'Installation', 
+                                label: 'Variant Parameter Sub Bisnis', 
                                 class:'',
                                 to: '/xx/detail',
                                 active: false,
@@ -104,19 +125,20 @@ export let menu = [
                 }, 
                 { 
                         label: 'Master Product',
-                        icon: 'i-heroicons-presentation-chart-bar',
+                        icon: 'i-fluent-box-20-regular',
                         class:' text-white hover:text-primary hover:bg-elevated rounded-md cursor-pointer', 
                         parent_to: '/xx', 
                         active: false,
+                        defaultOpen: false,
                         children: [
                             {
-                                label: 'Introduction', 
+                                label: 'Products', 
                                 class:'',
                                 to: '/xx',
                                 active: false,
                             },
                             {
-                                label: 'Installation', 
+                                label: 'Weight Checker', 
                                 class:'',
                                 to: '/xx/detail',
                                 active: false,
@@ -125,40 +147,36 @@ export let menu = [
                 }, 
                 { 
                         label: 'KoinWorks',
-                        icon: 'i-heroicons-presentation-chart-bar',
+                        icon: 'i-iconoir-coin',
                         class:' text-white hover:text-primary hover:bg-elevated rounded-md cursor-pointer', 
                         parent_to: '/xx', 
                         active: false,
+                        defaultOpen: false,
                         children: [
                             {
-                                label: 'Introduction', 
+                                label: 'Loan Report', 
                                 class:'',
                                 to: '/xx',
-                                active: false,
-                            },
-                            {
-                                label: 'Installation', 
-                                class:'',
-                                to: '/xx/detail',
                                 active: false,
                             }, 
                         ]
                 }, 
                 { 
                         label: 'Data Shipment',
-                        icon: 'i-heroicons-presentation-chart-bar',
+                        icon: 'i-mdi-truck-fast',
                         class:' text-white hover:text-primary hover:bg-elevated rounded-md cursor-pointer', 
                         parent_to: '/xx', 
                         active: false,
+                        defaultOpen: false,
                         children: [
                             {
-                                label: 'Introduction', 
+                                label: 'Mitra Ekspedisi', 
                                 class:'',
                                 to: '/xx',
                                 active: false,
                             },
                             {
-                                label: 'Installation', 
+                                label: 'Log Shipping Cost', 
                                 class:'',
                                 to: '/xx/detail',
                                 active: false,
@@ -167,7 +185,7 @@ export let menu = [
                 }, 
                 { 
                     label: 'Poolcoin',
-                    icon: 'i-heroicons-presentation-chart-bar',
+                    icon: 'i-clarity-coin-bag-solid',
                     class:' text-white hover:text-primary hover:bg-elevated rounded-md cursor-pointer', 
                     to: '/x',
                     children:  null,
@@ -175,7 +193,7 @@ export let menu = [
                 },
                 { 
                     label: 'Satuan',
-                    icon: 'i-heroicons-presentation-chart-bar',
+                    icon: 'i-material-symbols-stacks-outline',
                     class:' text-white hover:text-primary hover:bg-elevated rounded-md cursor-pointer', 
                     to: '/x',
                     children:  null,
@@ -183,7 +201,7 @@ export let menu = [
                 },
                 { 
                     label: 'Pooler',
-                    icon: 'i-heroicons-presentation-chart-bar',
+                    icon: 'i-fluent-people-money-20-filled',
                     class:' text-white hover:text-primary hover:bg-elevated rounded-md cursor-pointer', 
                     to: '/x',
                     children:  null,
@@ -191,7 +209,7 @@ export let menu = [
                 },
                 { 
                     label: 'Packer',
-                    icon: 'i-heroicons-presentation-chart-bar',
+                    icon: 'i-healthicons-market-stall-outline',
                     class:' text-white hover:text-primary hover:bg-elevated rounded-md cursor-pointer', 
                     to: '/x',
                     children:  null,
@@ -199,7 +217,7 @@ export let menu = [
                 },
                 { 
                     label: 'Team Poolapack',
-                    icon: 'i-heroicons-presentation-chart-bar',
+                    icon: 'i-fluent-people-team-16-regular',
                     class:' text-white hover:text-primary hover:bg-elevated rounded-md cursor-pointer', 
                     to: '/x',
                     children:  null,
@@ -207,7 +225,7 @@ export let menu = [
                 },
                 { 
                     label: 'Flash Sale',
-                    icon: 'i-heroicons-presentation-chart-bar',
+                    icon: 'i-mdi-flash',
                     class:' text-white hover:text-primary hover:bg-elevated rounded-md cursor-pointer', 
                     to: '/x',
                     children:  null,
@@ -215,7 +233,7 @@ export let menu = [
                 },
                 { 
                     label: 'Paramete Sistem',
-                    icon: 'i-heroicons-presentation-chart-bar',
+                    icon: 'i-mingcute-settings-6-line',
                     class:' text-white hover:text-primary hover:bg-elevated rounded-md cursor-pointer', 
                     to: '/x',
                     children:  null,
@@ -223,7 +241,7 @@ export let menu = [
                 },
                 { 
                     label: 'Banner',
-                    icon: 'i-heroicons-presentation-chart-bar',
+                    icon: 'i-solar-gallery-linear',
                     class:' text-white hover:text-primary hover:bg-elevated rounded-md cursor-pointer', 
                     to: '/x',
                     children:  null,
@@ -236,22 +254,22 @@ export let menu = [
     data : [
             { 
                 label: 'CRM',
-                icon: 'i-lucide-book-open',
+                icon: 'i-gravity-ui-signal',
                 class:'text-white hover:text-primary  hover:!bg-elevated',
                 active: false,
                 parent_to: '/tes',
                 defaultOpen: false,
                 children: [
                   {
-                    label: 'Introduction', 
+                    label: 'Broadcast Message', 
                     class:'',
                     to: '/tes',
                     active: false,
                   },
                   {
-                    label: 'Installation', 
+                    label: 'Feedback Rating', 
                     class:'',
-                    to: '/tes/detail',
+                    to: '/tesx',
                     active: false,
                   },
                   
@@ -259,7 +277,7 @@ export let menu = [
               },
               { 
                   label: 'RFQ',
-                  icon: 'i-heroicons-presentation-chart-bar',
+                  icon: 'i-iconoir-chat-bubble',
                   class:' text-white hover:text-primary hover:bg-elevated rounded-md cursor-pointer', 
                   to: '/',
                   children:  null,
@@ -267,7 +285,7 @@ export let menu = [
               }, 
               { 
                   label: 'Event',
-                  icon: 'i-heroicons-presentation-chart-bar',
+                  icon: 'i-material-symbols-light-event-available-sharp',
                   class:' text-white hover:text-primary hover:bg-elevated rounded-md cursor-pointer', 
                   to: '/',
                   children:  null,
@@ -275,7 +293,7 @@ export let menu = [
               }, 
               { 
                   label: 'Referral',
-                  icon: 'i-heroicons-presentation-chart-bar',
+                  icon: 'i-mingcute-link-fill',
                   class:' text-white hover:text-primary hover:bg-elevated rounded-md cursor-pointer', 
                   to: '/',
                   children:  null,
@@ -283,7 +301,7 @@ export let menu = [
               }, 
               { 
                   label: 'Link Media',
-                  icon: 'i-heroicons-presentation-chart-bar',
+                  icon: 'i-mi-link',
                   class:' text-white hover:text-primary hover:bg-elevated rounded-md cursor-pointer', 
                   to: '/',
                   children:  null,
@@ -291,7 +309,7 @@ export let menu = [
               }, 
               { 
                   label: 'Transaksi',
-                  icon: 'i-heroicons-presentation-chart-bar',
+                  icon: 'i-carbon-money',
                   class:' text-white hover:text-primary hover:bg-elevated rounded-md cursor-pointer', 
                   to: '/',
                   children:  null,
@@ -299,7 +317,7 @@ export let menu = [
               }, 
               { 
                   label: 'Log Activity',
-                  icon: 'i-heroicons-presentation-chart-bar',
+                  icon: 'i-ep-document',
                   class:' text-white hover:text-primary hover:bg-elevated rounded-md cursor-pointer', 
                   to: '/',
                   children:  null,
@@ -307,7 +325,7 @@ export let menu = [
               }, 
               { 
                   label: 'Log Search',
-                  icon: 'i-heroicons-presentation-chart-bar',
+                  icon: 'i-material-symbols-light-document-search-outline-sharp',
                   class:' text-white hover:text-primary hover:bg-elevated rounded-md cursor-pointer', 
                   to: '/',
                   children:  null,
@@ -315,22 +333,22 @@ export let menu = [
               }, 
               { 
                 label: 'Export',
-                icon: 'i-lucide-book-open',
+                icon: 'i-lucide-download',
                 class:'text-white hover:text-primary  hover:!bg-elevated',
                 active: false,
-                parent_to: '/tes',
+                parent_to: '/tesxxx',
                 defaultOpen: false,
                 children: [
                   {
-                    label: 'Introduction', 
+                    label: 'Transaksi', 
                     class:'',
-                    to: '/tes',
+                    to: '/tesxx',
                     active: false,
                   },
                   {
-                    label: 'Installation', 
+                    label: 'RFQ', 
                     class:'',
-                    to: '/tes/detail',
+                    to: '/tesxxx',
                     active: false,
                   },
                   

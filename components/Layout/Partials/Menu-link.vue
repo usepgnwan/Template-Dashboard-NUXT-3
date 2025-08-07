@@ -42,8 +42,8 @@ function renewMenu(newPath: string, item: itemMenu) {
   if (item.children) {
     const updatedChildren = item.children.map((child) => ({
       ...child,
-      active: child.to === newPath,
-      class: child.to === newPath
+      active:  newPath.startsWith(child.to),
+      class:  newPath.startsWith(child.to)
         ? '!text-primary before:!bg-elevated/50'
         : 'text-white hover:!text-primary hover:!bg-elevated/50',
     }))
@@ -52,7 +52,7 @@ function renewMenu(newPath: string, item: itemMenu) {
       ...item,
       active: newPath.startsWith(item.parent_to ?? ''),
       class: item.active ? '!text-primary  before:!bg-elevated ' : '',
-      defaultOpen: item.active,
+      defaultOpen:  !item.defaultOpen ?  newPath.startsWith(item.parent_to ?? '') : item.defaultOpen,
       children: updatedChildren,
     }
   } else {
@@ -87,7 +87,10 @@ function renewMenu(newPath: string, item: itemMenu) {
                 </UButton>
                 <template #content>
                   <div class="py-3 px-1 ">
-                      <NuxtLink :to="localItem.to" class="block hover:text-primary cursor-pointer">  {{ localItem.label }}   </NuxtLink> 
+                      <NuxtLink :to="localItem.to"
+                        class="block  cursor-pointer"
+                        :class="localItem.to == uri ? 'text-primary':'hover:text-primary'"
+                      >  {{ localItem.label }}   </NuxtLink> 
                   </div> 
                 </template>
                  
@@ -96,8 +99,7 @@ function renewMenu(newPath: string, item: itemMenu) {
         </ul> 
      
  
-      <UNavigationMenu   
-                        orientation="vertical"
+      <UNavigationMenu orientation="vertical"
                         :items="[localItem]"
                         v-if="localItem.children != null && !ismobile"
                         class="data-[orientation=vertical]:w-full mb-1"
@@ -123,18 +125,20 @@ function renewMenu(newPath: string, item: itemMenu) {
                 :ui="{ content:'!h-auto !w-auto !flex-wrap !flex-col'}"
               >    
             
-                <UButton  variant="subtle" :class="'text-white hover:text-primary hover:!bg-elevated !bg-transparent !ring-0 active:!bg-transparent '"  > 
+                <UButton  variant="subtle" :class="uri.startsWith(localItem.parent_to) ?  ' text-primary  !bg-elevated   !ring-0 ' : 'text-white hover:text-primary hover:!bg-elevated !bg-transparent !ring-0 active:!bg-transparent '"  > 
                 <slot name="label">
                     <UIcon :name="localItem.icon" class="h-5 w-5" />
                 </slot>
                 </UButton>
                 <template #content>  
                         <div class="flex flex-col relative px-1 py-0.5 space-y-1">
+                       
                             <p class="  font-semibold mb-1">{{ localItem.label }}</p>  
                             <NuxtLink v-for="(value, index) in localItem.children"
                                 :to="value.to"
                                 :key="index"
-                                class="block hover:text-primary cursor-pointer"
+                                class="block  cursor-pointer"
+                                :class="value.to == uri ? 'text-primary':'hover:text-primary'"
                                 >
                                 {{ value.label }}
                             </NuxtLink>
